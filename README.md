@@ -1,26 +1,17 @@
-# Angular Starter Code
+# Job Tracking Application - Angular
 
-This boilerplate code includes these modules: 
+[application-tracking](https://github.com/gKushagra/application-tracking) Rebuilt in Angular.
 
-Material  
-AppRouting  
-FlexLayout  
-HttpClient  
-ReactiveForms  
-BrowserAnimations  
+## Compile and Run
 
-Note: The `/components` directory inside the `/app` is where all the components go.  
-Declare and export the components in `components.module.ts`. Import any required modules in it.
+```bash
+# install dependencies
+npm install
 
-Stylesheet is set to SCSS, font-family is Roboto and Theme is Indigo-Pink.
+# run locally
+ng serve
+```
 
-Angular Version 10.0.5
-
-## Get Started
-
-Clone the repository
-
-`npm install`
-
-`ng serve`
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
