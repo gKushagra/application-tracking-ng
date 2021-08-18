@@ -22,7 +22,7 @@ npm run desktop-prod
 ```
 
 ## Download
-[v2.1.0-beta]()
+[v2.1.0-beta](https://github.com/gKushagra/application-tracking-ng/releases/tag/v2.1.0-beta)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
