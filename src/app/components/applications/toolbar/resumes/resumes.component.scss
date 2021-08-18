@@ -1,0 +1,38 @@
+.pdf-viewer {
+    &__wrapper {
+        width: 100% !important;
+        height: calc(100vh - 35px) !important;
+    }
+
+    &__container {
+        width: 100% !important;
+        height: calc(100vh - 35px) !important;
+
+        &-nav {
+            width: 100% !important;
+        }
+    }
+
+    &__filename {
+        margin: 2px 6px 2px 6px;
+        padding: 2px;
+        color: #0D47A1;
+        text-decoration: underline;
+        word-wrap: break-word !important;
+    }
+    &__filename:hover {
+        cursor: pointer;
+    }
+}
+
+mat-drawer {
+    width: 25% !important;
+}
+
+mat-drawer-content {
+    width: 75% !important;
+}
+
+.active {
+    background-color: #F5F5F5;
+}

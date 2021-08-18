@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>{{ data ? 'Edit Application':'New Application' }}</h2>
+<mat-dialog-content class="">
+    <form [formGroup]="newApplicationForm" fxLayout="column">
+        <mat-form-field appearance="standard">
+            <input type="text" placeholder="Company" aria-label="Company" matInput formControlName="company"
+                [matAutocomplete]="company">
+            <mat-autocomplete autoActiveFirstOption #company="matAutocomplete">
+                <mat-option *ngFor="let option of filteredCompanies | async" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <input type="text" placeholder="Position" aria-label="Position" matInput formControlName="position"
+                [matAutocomplete]="position">
+            <mat-autocomplete autoActiveFirstOption #position="matAutocomplete">
+                <mat-option *ngFor="let option of filteredPositions | async" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <input type="text" placeholder="Status" aria-label="Status" matInput formControlName="status"
+                [matAutocomplete]="status">
+            <mat-autocomplete autoActiveFirstOption #status="matAutocomplete">
+                <mat-option *ngFor="let option of filteredStatuses | async" [value]="option">
+                    {{option}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <input matInput formControlName="date" placeholder="Applied On" [matDatepicker]="appliedon">
+            <mat-datepicker-toggle matSuffix [for]="appliedon"></mat-datepicker-toggle>
+            <mat-datepicker #appliedon></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <input type="text" matInput formControlName="link" placeholder="Job Post Url">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <input type="text" matInput formControlName="username" placeholder="Portal Username">
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+            <input type="text" matInput formControlName="password" placeholder="Portal Password">
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button [disabled]="newApplicationForm.invalid" mat-button [mat-dialog-close]="true" (click)="saveNewApplication()"
+        cdkFocusInitial>
+        Save
+    </button>
+</mat-dialog-actions>

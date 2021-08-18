@@ -1,0 +1,45 @@
+.app-toolbar {
+    border-bottom: 1px solid #BDBDBD !important;
+    height: 35px !important;
+
+    &__options {
+        width: 100%;
+    }
+
+    &__option {
+        background-color: #FAFAFA;
+        border: 1px solid #BDBDBD;
+        border-radius: 4px;
+    }
+    &__option:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    &__option {
+        &-dropdown {
+            padding: 10px;
+            margin: 0;
+            border: solid 1px #BDBDBD;
+            border-radius: 4px;
+            background: #FAFAFA;
+
+            &__button {
+                background-color: #FAFAFA;
+                border: none;
+            }
+            &__button:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
+
+        &-dropdown {
+            list-style-type: none !important;
+        }
+
+        &-dropdown > li {
+            text-align: left;
+        }
+    }
+}

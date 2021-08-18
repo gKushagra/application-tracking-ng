@@ -1,0 +1,58 @@
+<mat-toolbar class="app-toolbar">
+    <div fxLayout="row" fxLayoutAlign="start center" class="app-toolbar__options">
+        <button (click)="isNavOpen = !isNavOpen" type="button" cdkOverlayOrigin #nav="cdkOverlayOrigin"
+            class="app-toolbar__option">Open</button>
+        <div fxFlex="1"></div>
+        <button (click)="isOptionsOpen = !isOptionsOpen" type="button" cdkOverlayOrigin #options="cdkOverlayOrigin"
+            class="app-toolbar__option">Options</button>
+        <div fxFlex></div>
+        <small>{{ currentPage }}</small>
+    </div>
+</mat-toolbar>
+
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="options" [cdkConnectedOverlayOpen]="isOptionsOpen">
+    <ul class="app-toolbar__option-dropdown">
+        <li>
+            <button (click)="createNewApplication()" class="app-toolbar__option-dropdown__button">
+                New Application
+            </button>
+        </li>
+        <li>
+            <button (click)="uploadFile()" class="app-toolbar__option-dropdown__button">
+                Upload New Resume
+            </button>
+        </li>
+        <li>
+            <button (click)="exportData()" class="app-toolbar__option-dropdown__button">
+                Export .json
+            </button>
+        </li>
+        <li>
+            <button (click)="importData()" class="app-toolbar__option-dropdown__button">
+                Import .json
+            </button>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="nav" [cdkConnectedOverlayOpen]="isNavOpen">
+    <ul class="app-toolbar__option-dropdown">
+        <li>
+            <button (click)="navigateToHome();"
+                class="app-toolbar__option-dropdown__button">
+                Dashboard
+            </button>
+        </li>
+        <li>
+            <button (click)="navigateToHome();"
+                class="app-toolbar__option-dropdown__button">
+                Applications
+            </button>
+        </li>
+        <li>
+            <button (click)="manageResumes();" class="app-toolbar__option-dropdown__button">
+                Resumes
+            </button>
+        </li>
+    </ul>
+</ng-template>

@@ -1,0 +1,22 @@
+<app-toolbar></app-toolbar>
+<div class="pdf-viewer__wrapper">
+  <mat-drawer-container class="pdf-viewer__container">
+    <mat-drawer mode="side" opened>
+      <div fxLayout="column" class="pdf-viewer__container-nav">
+        <div fxLayout="row" *ngFor="let resume of resumes" fxLayoutAlign="start center"
+          [ngClass]="checkActive(resume)?'active':''">
+          <span class="pdf-viewer__filename" (click)="loadResume(resume)">
+            {{resume.filename}}
+          </span>
+          <span fxFlex></span>
+          <button matTooltip="Delete" (click)="deleteResume(resume)" mat-icon-button>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div id="pdfdisplay"></div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

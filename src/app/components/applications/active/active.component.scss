@@ -1,0 +1,175 @@
+table {
+    width: 100%;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    background-color: #FAFAFA;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 35%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+
+  .app {
+
+    &-container {
+      margin: 0.5%;
+      padding: 0.5%;
+      width: 98%;
+      background-color: #FFFFFF !important;
+
+      &-table {
+        height: 75vh !important;
+        overflow: auto !important;
+
+        &-action {
+          cursor: pointer;
+        }
+      }
+    }
+
+    &-search {
+      width: 100%;
+    }
+  }
+
+  .mat-column-company {
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 18% !important;
+    width: 18% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  .mat-column-status {
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  .mat-column-position {
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 18% !important;
+    width: 18% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  .mat-column-link {
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 28% !important;
+    width: 28% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  .mat-column-date {
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 10% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+  .mat-column-actions {
+    font-size: 12px !important;
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 10% !important;
+    width: 10% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  
+    word-break: break-word;
+  
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+.sidenav {
+
+  &-container {
+    width: 35vw !important;
+    height: 100% !important;
+    overflow: auto !important;
+  }
+
+  &-section {
+    margin: 12px 10px 12px 10px;
+    padding: 2px;
+  }
+
+  &-checkbox-text {
+    width: 25vw !important;
+    word-wrap: break-word !important;
+    white-space: pre-wrap !important;
+  }
+
+  &-label {
+    margin-left: 10px !important;
+    margin-bottom: 0 !important;
+  }
+
+  &-chip {
+    font-size: 12px !important;
+    margin: 6px 0 10px 10px !important;
+  }
+
+  &-card {
+    background-color: #FAFAFA !important;
+    margin-top: 6px !important;
+    margin-bottom: 6px !important;
+  }
+
+  &-form-control {
+    width: 25vw !important;
+  } 
+}

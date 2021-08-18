@@ -31,7 +31,11 @@ import { MatTableModule } from "@angular/material/table";
 import { MatTabsModule } from "@angular/material/tabs";
 import { MatStepperModule } from "@angular/material/stepper";
 
+
 import { CdkTableModule } from "@angular/cdk/table";
+import { OverlayModule } from "@angular/cdk/overlay";
+import { A11yModule } from "@angular/cdk/a11y";
+import { MatNativeDateModule } from "@angular/material/core";
 
 @NgModule({
     imports: [
@@ -65,7 +69,10 @@ import { CdkTableModule } from "@angular/cdk/table";
         MatTabsModule,
         MatToolbarModule,
         MatTooltipModule,
-        CdkTableModule
+        CdkTableModule,
+        OverlayModule,
+        A11yModule,
+        MatNativeDateModule,
     ],
     exports: [
         MatAutocompleteModule,
@@ -97,7 +104,8 @@ import { CdkTableModule } from "@angular/cdk/table";
         MatTabsModule,
         MatToolbarModule,
         MatTooltipModule,
-        CdkTableModule
+        CdkTableModule,
+        OverlayModule,
     ]
 })
 export class MaterialModule { }
