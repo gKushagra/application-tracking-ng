@@ -1,5 +1,6 @@
 import { AfterContentInit, AfterViewInit, Component, OnInit } from '@angular/core';
 import { Resume } from 'src/app/interfaces/common';
+import { CommonService } from 'src/app/services/common.service';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -15,12 +16,23 @@ export class ResumesComponent implements OnInit, AfterViewInit, AfterContentInit
 
   constructor(
     private dataService: DataService,
+    private commonService: CommonService,
   ) {
     this.resumes = this.dataService.get("resumes") || [];
   }
 
   ngOnInit(): void {
+    this.commonService.resumeUpdatedObsrv.subscribe(newResume => {
+      if (newResume) {
+        this.resumes = this.dataService.get("resumes") || [];
+        this.pdfDisplay = document.querySelector('#pdfdisplay');
 
+        if (this.resumes.length > 0) {
+          this.active = this.resumes[0];
+          this.loadResume(this.active);
+        }
+      }
+    })
   }
 
   ngAfterViewInit() {
@@ -67,7 +79,8 @@ export class ResumesComponent implements OnInit, AfterViewInit, AfterContentInit
 
     this.dataService.save("resumes", this.resumes);
 
-    location.reload();
+    // location.reload();
+    this.commonService.resumeUpdated.next(true);
   }
 
   checkActive(resume: Resume): boolean {

@@ -55,7 +55,8 @@ export class ToolbarComponent implements OnInit, AfterViewInit, AfterContentInit
       let applications = this.dataService.get("applications") || [];
       applications.push(result);
       this.dataService.save("applications", applications);
-      location.reload();
+      // location.reload();
+      this.commonService.applicationUpdated.next(true);
     });
   }
 
@@ -115,7 +116,8 @@ export class ToolbarComponent implements OnInit, AfterViewInit, AfterContentInit
         this.dataService.save('resumes', resumes);
 
         fileInput = null;
-        location.reload();
+        // location.reload();
+        this.commonService.resumeUpdated.next(true);
       }
 
       fr.readAsDataURL(file);
@@ -140,10 +142,12 @@ export class ToolbarComponent implements OnInit, AfterViewInit, AfterContentInit
       var reader = new FileReader();
 
       let dataService = this.dataService;
+      let commonService = this.commonService;
 
       reader.onload = function (event) {
         dataService.save('applications', event.target.result);
-        location.reload();
+        // location.reload();
+        commonService.applicationUpdated.next(true);
       }
 
       reader.readAsText(file);

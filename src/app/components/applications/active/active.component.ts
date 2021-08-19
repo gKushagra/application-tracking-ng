@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSidenav } from '@angular/material/sidenav';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Application, Contact, Todo } from 'src/app/interfaces/common';
@@ -19,7 +18,6 @@ export class ActiveComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
 
   applications: Application[];
   displayedColumns: string[] = ['company', 'status', 'position', 'link', 'date', 'actions'];
@@ -47,7 +45,18 @@ export class ActiveComponent implements OnInit, AfterViewInit {
     this.todoDescription = new FormControl(null, [Validators.required]);
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.commonService.applicationUpdatedObsrv.subscribe(isUpdated => {
+      if (isUpdated) {
+        this.applications = this.dataService.get("applications");
+        this.dataSource = new MatTableDataSource(this.applications);
+        setTimeout(() => {
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+        }, 1000);
+      }
+    });
+  }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -102,6 +111,7 @@ export class ActiveComponent implements OnInit, AfterViewInit {
   }
 
   openSidenav(application: Application): void {
+    if (!application) return;
     this.viewingApplication = application;
     this.viewApplication = !this.viewApplication;
   }
@@ -138,15 +148,13 @@ export class ActiveComponent implements OnInit, AfterViewInit {
     this.viewingApplication.todo = this.viewingApplication.todo.filter(t => {
       return t.id !== todo.id
     });
+    // this.viewApplication = !this.viewApplication;
     this.saveApplications();
   }
 
   private saveApplications(): void {
     this.dataService.save("applications", this.applications);
-    this.viewApplication = !this.viewApplication;
-    setTimeout(() => {
-      location.reload();
-    }, 1000);
+    this.commonService.applicationUpdated.next(true);
   }
 
   closeSidenav(): void {

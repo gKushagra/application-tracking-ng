@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommonService {
+
+  public applicationUpdated: Subject<boolean> = new Subject();
+  public applicationUpdatedObsrv: Observable<boolean> = this.applicationUpdated.asObservable();
+
+  public resumeUpdated: Subject<boolean> = new Subject();
+  public resumeUpdatedObsrv: Observable<boolean> = this.resumeUpdated.asObservable();
 
   constructor() { }
 
